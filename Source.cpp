@@ -16,5 +16,6 @@ bool board[SIZE][SIZE] = { false };
 int main()
 {
 
+
 	return 0;
 }
