@@ -15,6 +15,8 @@ bool board[SIZE][SIZE] = { false };
 void printBoard(bool board[SIZE][SIZE]);
 bool checkQueens(bool board[SIZE][SIZE]);
 
+// IDEA: Take two lists 0-8 (one for columns and one for rows) and shuffle to get queen positions, repeat until no diagonals intersect
+
 int main()
 {
 	srand(time(0));
@@ -33,7 +35,7 @@ bool checkQueens(bool board[SIZE][SIZE])
 		for (int col = 0; col < SIZE; col++)
 			if (board[row][col])
 				queenCount++;
-		if (queenCount > 1)
+		if (queenCount != 1)
 			return false;
 	}
 
@@ -44,9 +46,10 @@ bool checkQueens(bool board[SIZE][SIZE])
 		for (int row = 0; row < SIZE; row++)
 			if (board[row][col])
 				queenCount++;
-		if (queenCount > 1)
+		if (queenCount != 1)
 			return false;
 	}
+
 }
 
 	// TODO: Check diagonals (painful)
