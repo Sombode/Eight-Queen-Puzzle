@@ -14,12 +14,14 @@ bool board[SIZE][SIZE] = { false };
 
 void printBoard(bool board[SIZE][SIZE]);
 bool checkQueens(bool board[SIZE][SIZE]);
+void shuffle(int[], const int);
 
 // IDEA: Take two lists 0-8 (one for columns and one for rows) and shuffle to get queen positions, repeat until no diagonals intersect
 
 int main()
 {
 	srand(time(0));
+	int nums[SIZE];
 	printBoard(board);
 	return 0;
 }
@@ -52,8 +54,8 @@ bool checkQueens(bool board[SIZE][SIZE])
 
 }
 
-	// TODO: Check diagonals (painful)
-	// TODO: Maybe optimize
+	// TODO: Check diagonals (painful)//
+	// TODO: Maybe optimize//
 
 // Function: printBoard
 // Description: Prints the chessboard so the player can see what is happening
@@ -75,4 +77,10 @@ void printBoard(bool board[SIZE][SIZE])
 		}
 		cout << "|\n+---+---+---+---+---+---+---+---+\n";
 	}
+}
+
+void shuffle(int[], const int)
+{
+
+
 }
