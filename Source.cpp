@@ -49,7 +49,6 @@ bool checkQueens(bool board[SIZE][SIZE])
 			return false;
 	}
 
-	for(int )
 }
 
 	// TODO: Check diagonals (painful)
