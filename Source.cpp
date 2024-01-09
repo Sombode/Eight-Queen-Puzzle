@@ -113,10 +113,12 @@ void printBoard(bool board[SIZE][SIZE])
 	cout << "    a   b   c   d   e   f   g   h";
 }
 
-void shuffle(int[], const int)
+void shuffle(int arr[], const int SIZE)
 {
-	for (int x = 0; x <= 0; x++)
+	for (int x = 0; x <= SIZE; x++)
 	{
-		
+		int newLoc = rand() % SIZE;
+		swap(arr[x], arr[newLoc]);
+		cout << arr[newLoc] << " "
 	}
 }
