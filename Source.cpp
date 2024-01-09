@@ -19,6 +19,7 @@ bool checkQueens(bool board[SIZE][SIZE]);
 
 int main()
 {
+	srand(time(0));
 	printBoard(board);
 	checkQueens(board);
 	return 0;
@@ -71,15 +72,15 @@ bool checkQueens(bool board[SIZE][SIZE])
 }
 
 
-
-
-// joel change
-
+// Function: printBoard
+// Description: Prints the chessboard so the player can see what is happening
 void printBoard(bool board[SIZE][SIZE])
 {
-	cout << "+---+---+---+---+---+---+---+---+\n";
+	cout << "    a   b   c   d   e   f   g   h\n";
+	cout << "  +---+---+---+---+---+---+---+---+\n";
 	for (int r = 0; r < SIZE; r++)
 	{
+		cout << r+1 << " ";
 		for (int c = 0; c < SIZE; c++)
 		{
 			if (board[r][c] == false)
@@ -91,6 +92,8 @@ void printBoard(bool board[SIZE][SIZE])
 				cout << "| Q ";
 			}
 		}
-		cout << "|\n+---+---+---+---+---+---+---+---+\n";
+		cout << "| " << r + 1;
+		cout << "\n  +---+---+---+---+---+---+---+---+\n";
 	}
+	cout << "    a   b   c   d   e   f   g   h";
 }
