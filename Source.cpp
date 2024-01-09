@@ -13,7 +13,7 @@ const int SIZE = 8;
 bool board[SIZE][SIZE] = { false };
 
 void printBoard(bool board[SIZE][SIZE]);
-bool checkQueens(bool[SIZE][SIZE]);
+bool checkQueens(bool board[SIZE][SIZE]);
 
 int main()
 {
@@ -23,9 +23,11 @@ int main()
 
 // Function: checkQueens
 // Description: Checks a chessboard to make sure no queens conflict with each other
-bool checkQueens(bool board[SIZE][SIZE]) {
+bool checkQueens(bool board[SIZE][SIZE])
+{
 	// Check each row
-	for (int row = 0; row < SIZE; row++) {
+	for (int row = 0; row < SIZE; row++)
+	{
 		int queenCount = 0;
 		for (int col = 0; col < SIZE; col++)
 			if (board[row][col])
@@ -35,7 +37,8 @@ bool checkQueens(bool board[SIZE][SIZE]) {
 	}
 
 	// Check each column
-	for (int col = 0; col < SIZE; col++) {
+	for (int col = 0; col < SIZE; col++)
+	{
 		int queenCount = 0;
 		for (int row = 0; row < SIZE; row++)
 			if (board[row][col])
@@ -43,6 +46,7 @@ bool checkQueens(bool board[SIZE][SIZE]) {
 		if (queenCount > 1)
 			return false;
 	}
+}
 
 	// TODO: Check diagonals (painful)
 	// TODO: Maybe optimize
