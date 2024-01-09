@@ -17,6 +17,7 @@ bool checkQueens(bool board[SIZE][SIZE]);
 
 int main()
 {
+	srand(time(0));
 	printBoard(board);
 	return 0;
 }
@@ -51,8 +52,8 @@ bool checkQueens(bool board[SIZE][SIZE])
 	// TODO: Check diagonals (painful)
 	// TODO: Maybe optimize
 
-// joel change
-
+// Function: printBoard
+// Description: Prints the chessboard so the player can see what is happening
 void printBoard(bool board[SIZE][SIZE])
 {
 	for (int r = 0; r < SIZE; r++)
