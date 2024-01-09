@@ -61,9 +61,11 @@ bool checkQueens(bool board[SIZE][SIZE])
 // Description: Prints the chessboard so the player can see what is happening
 void printBoard(bool board[SIZE][SIZE])
 {
-	cout << "+---+---+---+---+---+---+---+---+\n";
+	cout << "    a   b   c   d   e   f   g   h\n";
+	cout << "  +---+---+---+---+---+---+---+---+\n";
 	for (int r = 0; r < SIZE; r++)
 	{
+		cout << r+1 << " ";
 		for (int c = 0; c < SIZE; c++)
 		{
 			if (board[r][c] == false)
@@ -75,12 +77,8 @@ void printBoard(bool board[SIZE][SIZE])
 				cout << "| Q ";
 			}
 		}
-		cout << "|\n+---+---+---+---+---+---+---+---+\n";
+		cout << "| " << r + 1;
+		cout << "\n  +---+---+---+---+---+---+---+---+\n";
 	}
-}
-
-void shuffle(int[], const int)
-{
-
-
+	cout << "    a   b   c   d   e   f   g   h";
 }
