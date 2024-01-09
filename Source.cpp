@@ -24,6 +24,7 @@ int main()
 	int nums[SIZE];
 	printBoard(board);
 	checkQueens(board);
+	shuffle(nums, SIZE);
 	return 0;
 }
 
@@ -104,10 +105,10 @@ void printBoard(bool board[SIZE][SIZE])
 
 void shuffle(int arr[], const int SIZE)
 {
-	for (int x = 0; x <= SIZE; x++)
+	for (int x = 0; x < SIZE; x++)
 	{
 		int newLoc = rand() % SIZE;
 		swap(arr[x], arr[newLoc]);
-		cout << arr[newLoc] << " "
+		cout << arr[newLoc] << " ";
 	}
 }
