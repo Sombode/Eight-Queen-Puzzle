@@ -51,8 +51,6 @@ bool checkQueens(bool board[SIZE][SIZE])
 	// TODO: Check diagonals (painful)
 	// TODO: Maybe optimize
 
-}
-
 // joel change
 
 void printBoard(bool board[SIZE][SIZE])
