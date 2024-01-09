@@ -51,25 +51,26 @@ bool checkQueens(bool board[SIZE][SIZE])
 	// TODO: Check diagonals (painful)
 	// TODO: Maybe optimize
 
-}
+
 
 // joel change
 
 void printBoard(bool board[SIZE][SIZE])
 {
+	cout << "+---+---+---+---+---+---+---+---+\n";
 	for (int r = 0; r < SIZE; r++)
 	{
 		for (int c = 0; c < SIZE; c++)
 		{
 			if (board[r][c] == false)
 			{
-				cout << "0 ";
+				cout << "| 0 ";
 			}
 			else
 			{
-				cout << "Q ";
+				cout << "| Q ";
 			}
 		}
-		cout << "\n";
+		cout << "|\n+---+---+---+---+---+---+---+---+\n";
 	}
 }
