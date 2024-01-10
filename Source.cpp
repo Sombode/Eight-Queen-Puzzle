@@ -28,6 +28,7 @@ int main()
 	{
 		for (int i = 0; i < row - 1; i++)
 		{
+			unplaceable;
 			cout << queens[i] << " is " << row - i - 1 << " rows up from " << row << endl;
 		}
 		int col;
@@ -48,52 +49,6 @@ int main()
 	printBoard(board);
 	return 0;
 }
-
-//// Function: checkQueens
-//// Description: Checks a chessboard to make sure no queens conflict with each other
-//bool checkQueens(bool board[SIZE][SIZE])
-//{
-//	// Check each row
-//	for (int row = 0; row < SIZE; row++)
-//	{
-//		int queenCount = 0;
-//		for (int col = 0; col < SIZE; col++)
-//			if (board[row][col])
-//				queenCount++;
-//		if (queenCount != 1)
-//			return false;
-//	}
-//
-//	// Check each column
-//	for (int col = 0; col < SIZE; col++)
-//	{
-//		int queenCount = 0;
-//		for (int row = 0; row < SIZE; row++)
-//			if (board[row][col])
-//				queenCount++;
-//		if (queenCount != 1)
-//			return false;
-//	}
-//
-//	// TODO: Check diagonals (painful)
-//	// TODO: Maybe optimize
-//
-//	for (int i = 0; i < SIZE * 2 - 1; i++) {
-//		int row = 0, col = 0, queenCount = 0;
-//		if (i < SIZE)
-//			row = i;
-//		else
-//			col = i;
-//		while (max(row, col) < SIZE) {
-//			cout << "Checking " << row << ", " << col << endl;
-//			if (board[row][col])
-//				queenCount++;
-//			row++;
-//			col++;
-//		}
-//	}
-//
-//}
 
 // Function: printBoard
 // Description: Prints the chessboard so the player can see what is happening
