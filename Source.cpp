@@ -29,26 +29,22 @@ int main()
 // Description: Prints the chessboard so the player can see what is happening
 void printBoard()
 {
-	cout << "    a   b   c   d   e   f   g   h\n";
-	cout << "  +---+---+---+---+---+---+---+---+\n";
-	for (int r = 0; r < SIZE; r++)
+	cout << "    a   b   c   d   e   f   g   h" << endl;
+	cout << "  +---+---+---+---+---+---+---+---+" << endl;
+	for (int row = 0; row < SIZE; row++)
 	{
-		cout << r+1 << " ";
-		for (int c = 0; c < SIZE; c++)
+		cout << row + 1 << " ";
+		for (int col = 0; col < SIZE; col++)
 		{
-			if (board[r][c] == false)
-			{
+			if (board[row][col] == false)
 				// Print blank space if there is no queen at that space
 				cout << "|   ";
-			}
 			else
-			{
 				// Print Q if there is a queen at that space
 				cout << "| Q ";
-			}
 		}
-		cout << "| " << r + 1;
-		cout << "\n  +---+---+---+---+---+---+---+---+\n";
+		cout << "| " << row + 1;
+		cout << endl << "  +---+---+---+---+---+---+---+---+" << endl;
 	}
 	cout << "    a   b   c   d   e   f   g   h";
 }
@@ -93,14 +89,15 @@ bool generateQueens()
 			resetBoard();
 			return false;
 		}
-		// Randomizes the location of the column of where to put the queen
+
+		// Randomizes the location of the column of where to put the queen (until a suitable location is found)
 		int col;
 		do
 			col = rand() % SIZE;
 		while (unplaceable[col]);
 		board[row][col] = true;
 		queens[row] = col;
-
 	}
+	// Return true when a solution is found
 	return true;
 }
