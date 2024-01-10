@@ -64,36 +64,41 @@ void resetBoard()
 // Description: Generates a solution to the 8 queens problem
 bool generateQueens()
 {
-	bool unplaceable[SIZE] = { false };
+	// queens stores the x-position (column) of each queen sequentially from the top row to the bottom
 	int queens[SIZE] = { 0 };
 	for (int row = 0; row < SIZE; row++)
 	{
-		bool unplaceableDiagonal[SIZE] = { false };
+		bool unplaceable[SIZE] = { false };
 		for (int i = 0; i < row; i++)
 		{
+			// Mark the columns of the previous queens as unplaceable
+			unplaceable[queens[i]] = true;
+			// Mark the diagonal (down and to the right) of the queen as unplaceable if it does not go outside of the board
 			if (queens[i] + (row - i) < SIZE)
-				unplaceableDiagonal[queens[i] + row - i] = true;
+				unplaceable[queens[i] + row - i] = true;
+			// Mark the diagonal (down and to the left) of the queen as unplaceable if it does not go outside of the board
 			if (queens[i] - (row - i) >= 0)
-				unplaceableDiagonal[queens[i] - (row - i)] = true;
+				unplaceable[queens[i] - (row - i)] = true;
 		}
+
+		// Do a quick check to make sure there is a possible space to place a queen
 		int total = 0;
 		for (int i = 0; i < SIZE; i++)
-			total += (unplaceable[i] || unplaceableDiagonal[i]);
+			total += unplaceable[i];
 		if (total == SIZE)
 		{
-			// give up and retry
+			// If every space is blocked by other queens: give up, reset the board, and return false
 			resetBoard();
 			return false;
 		}
+
 		int col;
 		do
-		{
 			col = rand() % SIZE;
-		} while (unplaceable[col] || unplaceableDiagonal[col]);
+		while (unplaceable[col]);
 		board[row][col] = true;
-		unplaceable[col] = true;
 		queens[row] = col;
-		queens[row] = col;
+
 	}
 	return true;
 }
