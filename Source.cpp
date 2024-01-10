@@ -16,12 +16,11 @@ void printBoard();
 void resetBoard();
 bool generateQueens();
 
-// IDEA: Take ONE list 0-8 and shuffle to get queen positions, repeat until no diagonals intersect
-
 int main()
 {
 	srand(time(0));
-	do {} while (!generateQueens());
+	// Runs generateQueens until it returns true (which is only when a solution is found)
+	while (!generateQueens());
 	printBoard();
 	return 0;
 }
@@ -83,6 +82,7 @@ bool generateQueens()
 		if (total == SIZE)
 		{
 			// give up and retry
+			resetBoard();
 			return false;
 		}
 		int col;
