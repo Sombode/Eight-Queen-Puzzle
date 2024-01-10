@@ -12,47 +12,23 @@ const int SIZE = 8;
 // Initialize the chessboard with all spaces empty (true = queen)
 bool board[SIZE][SIZE] = { false };
 
-void printBoard(bool board[SIZE][SIZE]);
-bool checkQueens(bool board[SIZE][SIZE]);
-void shuffle(int[], const int);
+void printBoard();
+void resetBoard();
+bool generateQueens();
 
 // IDEA: Take ONE list 0-8 and shuffle to get queen positions, repeat until no diagonals intersect
 
 int main()
 {
 	srand(time(0));
-	int nums[SIZE];
-	bool unplaceable[SIZE] = { false };
-	int queens[SIZE] = { 0 };
-	for (int row = 0; row < SIZE; row++)
-	{
-		for (int i = 0; i < row - 1; i++)
-		{
-			unplaceable;
-			cout << queens[i] << " is " << row - i - 1 << " rows up from " << row << endl;
-		}
-		int col;
-		do
-		{
-			col = rand() % SIZE;
-		} while (unplaceable[col]);
-		board[row][col] = true;
-		unplaceable[col] = true;
-		// To retrieve the x and y of the queen position:
-			// x: position % 8
-			// y: floor(position / 8)
-		queens[row] = col + row * 8;
-		// position%8 + col - floor(position/8)
-		// position%8 - col - floor(position/8)
-		queens[row] = col;
-	}
-	printBoard(board);
+	do {} while (!generateQueens());
+	printBoard();
 	return 0;
 }
 
 // Function: printBoard
 // Description: Prints the chessboard so the player can see what is happening
-void printBoard(bool board[SIZE][SIZE])
+void printBoard()
 {
 	cout << "    a   b   c   d   e   f   g   h\n";
 	cout << "  +---+---+---+---+---+---+---+---+\n";
@@ -74,4 +50,50 @@ void printBoard(bool board[SIZE][SIZE])
 		cout << "\n  +---+---+---+---+---+---+---+---+\n";
 	}
 	cout << "    a   b   c   d   e   f   g   h";
+}
+
+// Function: resetBoard
+// Description: Sets all values in board back to zero (empty)
+void resetBoard()
+{
+	for (int row = 0; row < SIZE; row++)
+		for (int col = 0; col < SIZE; col++)
+			board[row][col] = false;
+}
+
+// Function: generateQueens
+// Description: Generates a solution to the 8 queens problem
+bool generateQueens()
+{
+	bool unplaceable[SIZE] = { false };
+	int queens[SIZE] = { 0 };
+	for (int row = 0; row < SIZE; row++)
+	{
+		bool unplaceableDiagonal[SIZE] = { false };
+		for (int i = 0; i < row; i++)
+		{
+			if (queens[i] + (row - i) < SIZE)
+				unplaceableDiagonal[queens[i] + row - i] = true;
+			if (queens[i] - (row - i) >= 0)
+				unplaceableDiagonal[queens[i] - (row - i)] = true;
+		}
+		int total = 0;
+		for (int i = 0; i < SIZE; i++)
+			total += (unplaceable[i] || unplaceableDiagonal[i]);
+		if (total == SIZE)
+		{
+			// give up and retry
+			return false;
+		}
+		int col;
+		do
+		{
+			col = rand() % SIZE;
+		} while (unplaceable[col] || unplaceableDiagonal[col]);
+		board[row][col] = true;
+		unplaceable[col] = true;
+		queens[row] = col;
+		queens[row] = col;
+	}
+	return true;
 }
