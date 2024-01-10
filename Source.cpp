@@ -83,10 +83,11 @@ bool generateQueens()
 			total += (unplaceable[i] || unplaceableDiagonal[i]);
 		if (total == SIZE)
 		{
-			// give up and retry
+			// Give up and retry the board
 			resetBoard();
 			return false;
 		}
+		// Randomizes the location of the column of where to put the queen
 		int col;
 		do
 		{
