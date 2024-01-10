@@ -38,10 +38,12 @@ void printBoard()
 		{
 			if (board[r][c] == false)
 			{
+				// Print blank space if there is no queen at that space
 				cout << "|   ";
 			}
 			else
 			{
+				// Print Q if there is a queen at that space
 				cout << "| Q ";
 			}
 		}
