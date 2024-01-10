@@ -36,6 +36,12 @@ int main()
 		} while (unplaceable[col]);
 		board[row][col] = true;
 		unplaceable[col] = true;
+		// To retrieve the x and y of the queen position:
+			// x: position % 8
+			// y: floor(position / 8)
+		queens[row] = col + row * 8;
+		// position%8 + col - floor(position/8)
+		// position%8 - col - floor(position/8)
 		queens[row] = col;
 	}
 	printBoard(board);
