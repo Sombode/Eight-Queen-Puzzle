@@ -13,8 +13,6 @@ const int SIZE = 8;
 bool board[SIZE][SIZE] = { false };
 
 void printBoard(bool board[SIZE][SIZE]);
-bool checkQueens(bool board[SIZE][SIZE]);
-void shuffle(int[], const int);
 
 // IDEA: Take ONE list 0-8 and shuffle to get queen positions, repeat until no diagonals intersect
 
