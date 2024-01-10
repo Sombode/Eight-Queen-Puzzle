@@ -36,6 +36,8 @@ int main()
 			// x: position % 8
 			// y: floor(position / 8)
 		queens[row] = col + row * 8;
+		// position%8 + col - floor(position/8)
+		// position%8 - col - floor(position/8)
 	}
 	printBoard(board);
 	return 0;
